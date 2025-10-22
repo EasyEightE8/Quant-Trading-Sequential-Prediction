@@ -1,0 +1,14 @@
+# Data Manipulation
+pandas
+numpy
+jupyterlab
+
+# Machine Learning
+yfinance
+
+# Technical Analysis
+ta-lib
+
+# Visualization
+matplotlib
+plotly
