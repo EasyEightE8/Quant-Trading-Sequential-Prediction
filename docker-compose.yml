@@ -1,0 +1,12 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  quant_api:
+    build: .
+    container_name: quant_trading_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000" 
+    volumes: 
+      - ./api/models:/app/api/models

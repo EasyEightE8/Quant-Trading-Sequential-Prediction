@@ -40,7 +40,7 @@ async def get_trading_signal(input_data: SequenceInput):
         data_to_predict = [item.model_dump() for item in input_data.sequence]
         
         # Get prediction
-        proba, signal = predict.predict_signal(data_to_predict)
+        proba, signal = predict.predict_signals(data_to_predict)
         
         return {"prediction_probability": proba, "trading_signal": signal, "interpretation": "Buy" if signal == 1 else "Hold/Sell", "threshold": predict.PREDICTION_THRESHOLD}
     
@@ -48,8 +48,9 @@ async def get_trading_signal(input_data: SequenceInput):
         raise HTTPException(status_code=400, detail=str(e))
     
     except Exception as e:
+        print(f"Server Error Detail: {e}")
         raise HTTPException(status_code=500, detail="Internal server error.")
-    
+        
     
 if __name__ == "__main__":
     uvicorn.run("api.main:app", host="0.0.0.0", port=8000, reload=True)
