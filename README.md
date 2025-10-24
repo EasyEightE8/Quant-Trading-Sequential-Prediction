@@ -72,3 +72,19 @@ Ce projet consiste à développer un service web complet (API REST) capable d'an
 * `[ ] Analyse Financière (Quant)` : Rédaction d'une analyse critique dans ce `README` (ou un Notebook dédié) sur les risques du modèle (surapprentissage/overfitting, dérive de concept, sensibilité aux régimes de marché).
 * `[ ] Données Alternatives (NLP)` : Proposition conceptuelle d'amélioration du modèle par l'intégration de *features* non structurées (ex: analyse de sentiment des news, tweets) via des modèles NLP (ex: FinBERT).
 * `[ ] Connaissances Marché (Bloomberg)` : Proposition d'intégration de *features* macro-économiques (ex: taux directeurs, VIX) pour capturer le risque systémique, en lien avec les certifications **Bloomberg (BMC, BQL, BFF)**.
+
+## Phase 5 : Analyse Critique et Feuille de Route Future
+
+Le modèle Stacked LSTM a validé le pipeline MLOps, mais a montré un biais significatif :
+
+Ratio de Sharpe Final : 0.88 après ajustement du seuil et du taux sans risque.
+
+Max Drawdown : 18.66%.
+
+Problème Majeur : 
+
+Le modèle manque de capacité discriminante (il est fortement biaisé vers la tendance de fond haussière), rendant sa performance trop proche du "Buy-and-Hold". Ce biais est la principale limite à corriger.
+
+Architecture Future : 
+
+Étude du Temporal Convolutional Network (TCN) comme alternative plus stable au LSTM.
